@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dotnet-deploy
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: loadmxdn9961-tenant-component
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: loadmxdn9961-tenant-component
+    app.kubernetes.io/part-of: loadmxdn9961-tenant-app
+  name: loadmxdn9961-tenant-component
+  namespace: loadmxdn9961-tenant
+spec:
+  ports:
+  - name: http-8081
+    port: 8081
+    protocol: TCP
+    targetPort: 8081
+  selector:
+    app: devfile-dotnet-deploy
+    app.kubernetes.io/instance: loadmxdn9961-tenant-component
+  type: LoadBalancer
+status:
+  loadBalancer: {}
